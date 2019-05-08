@@ -42,13 +42,20 @@
             const {
                 InlineEditor,
                 //block
-                Paragraph
+                Paragraph,
+                //UI
+                ParagraphButtonUI
             } = IncCKEditorFeatures;
 
             const ArticleBodyConfig = {
-                plugins:[Paragraph],
+                plugins:[
+                    //block
+                    Paragraph,
+                    //UI
+                    ParagraphButtonUI
+                ],
                 toolbar:{
-                    items:[],
+                    items:['paragraph'],
                     viewportTopOffset:101
                 }
             };
