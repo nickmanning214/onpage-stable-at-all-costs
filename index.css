@@ -1,0 +1,20 @@
+ /*reset*/
+ body{margin:0;}
+            
+            
+ header{text-align:center;width:100%;background:white;}
+ 
+ /*sticky header*/
+ body{--header-height: 100px;}
+ header{position:fixed;border-bottom:1px solid black;height:var(--header-height);}
+ main{
+     padding-top:var(--header-height);
+ }
+
+ main{
+     max-width:500px;
+     margin-left:auto;
+     margin-right:auto;
+ }
+ h1,h2{margin:0;padding:0}
+ 
