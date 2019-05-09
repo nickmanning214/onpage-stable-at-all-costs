@@ -12,6 +12,7 @@ import Undo from '@ckeditor/ckeditor5-undo/src/undo';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
+import List from '@ckeditor/ckeditor5-list/src/list';
 
 
 //UI
@@ -31,6 +32,7 @@ window.IncCKEditorFeatures = {
     Paragraph,
     Heading,
     BlockQuote,
+    List,
     //UI
     HeadingButtonsUI,
     ParagraphButtonUI
