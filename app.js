@@ -14,6 +14,9 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import List from '@ckeditor/ckeditor5-list/src/list';
 
+//attributes
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 
 //UI
 import HeadingButtonsUI from '@ckeditor/ckeditor5-heading/src/headingbuttonsui';
@@ -33,6 +36,9 @@ window.IncCKEditorFeatures = {
     Heading,
     BlockQuote,
     List,
+    //Attributes
+    Bold,
+    Italic,
     //UI
     HeadingButtonsUI,
     ParagraphButtonUI
