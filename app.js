@@ -7,6 +7,7 @@ import Enter from '@ckeditor/ckeditor5-enter/src/enter';
 import ShiftEnter from '@ckeditor/ckeditor5-enter/src/shiftenter';
 import Typing from '@ckeditor/ckeditor5-typing/src/typing';
 import Undo from '@ckeditor/ckeditor5-undo/src/undo';
+//import IndentTextPlugin from 'ckeditor5-indent-text/src/indent-text'
 
 //containers
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
@@ -31,6 +32,7 @@ window.IncCKEditorFeatures = {
     ShiftEnter,
     Typing,
     Undo,
+    //IndentTextPlugin,
     //containers
     Paragraph,
     Heading,
