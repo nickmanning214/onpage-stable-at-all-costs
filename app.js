@@ -13,6 +13,7 @@ import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import List from '@ckeditor/ckeditor5-list/src/list';
+import InlineItems from './src/InlineItems.js'
 
 //attributes
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
@@ -36,6 +37,7 @@ window.IncCKEditorFeatures = {
     Heading,
     BlockQuote,
     List,
+    InlineItems,
     //Attributes
     Bold,
     Italic,
