@@ -91,7 +91,7 @@ class InlineItems extends Plugin {
             //buttonView.bind( 'isOn', 'isEnabled' ).to( command, 'value', 'isEnabled' );
 
             // Execute the command when the button is clicked (executed).
-            this.listenTo( buttonView, 'execute', editor.config.get('onButtonPress').callback
+            this.listenTo( buttonView, 'execute', editor.config.get('inlineItem').onButtonPress.bind(null,editor)
                 //editor.execute( 'insertSimpleBox' ) 
             );
 
