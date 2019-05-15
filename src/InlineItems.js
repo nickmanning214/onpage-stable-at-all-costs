@@ -8,7 +8,8 @@ class InlineItems extends Plugin {
     static get requires() {
         return [ Widget ];
     }
-    registerSchema(){
+    
+    _defineSchema(){
 
         const blockConfig = {
             allowWhere: '$block',//like blockquote
@@ -20,20 +21,8 @@ class InlineItems extends Plugin {
         
         return this;
     }
-
-    elementToElement(){
-        this.editor.conversion.elementToElement( {
-            model: 'inlineItem',
-            view: {
-                name: 'div',
-                classes: 'inline-item'
-            }
-
-        } );
-    }
-
     
-    upcast(){
+    _defineConverters(){
         //This doesn't work for some reason
         //TypeError: Cannot read property 'is' of undefined at Mapper._findPositionIn
         this.editor.conversion.for('upcast').elementToElement({
@@ -65,7 +54,7 @@ class InlineItems extends Plugin {
         return this;
     }
 
-    addIcon2(){
+    _defineButton(){
 
         const editor = this.editor;
         const t = editor.t;
@@ -87,25 +76,16 @@ class InlineItems extends Plugin {
                 tooltip: true
             } );
 
-            // Bind the state of the button to the command.
-            //buttonView.bind( 'isOn', 'isEnabled' ).to( command, 'value', 'isEnabled' );
-
             // Execute the command when the button is clicked (executed).
-            this.listenTo( buttonView, 'execute', editor.config.get('inlineItem').onButtonPress.bind(null,editor)
-                //editor.execute( 'insertSimpleBox' ) 
-            );
+            this.listenTo( buttonView, 'execute', editor.config.get('inlineItem').onButtonPress.bind(null,editor));
 
             return buttonView;
         } );
+        return this;
     }
     init() {
         
-        this.registerSchema();
-        //this.elementToElement();
-        this.upcast();
-        this.addIcon2();
-       
-
+        this._defineSchema()._defineConverters()._defineButton();
 
     }
 }
