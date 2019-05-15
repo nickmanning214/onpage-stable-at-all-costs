@@ -87,7 +87,25 @@
                     viewportTopOffset:101
                 },
                 inlineItem:{
-                    onButtonPress:()=>{alert("Works")}
+                    onButtonPress:(editor)=>{
+                        editor.model.change(writer => {
+                            //var element = writer.createElement('inlineItem');
+                            //writer.appendText(fullName + ': ' + sel[nameField] + ' id:' + sel.id, element);
+                            //writer.insert(element, editor.model.document.selection.getFirstPosition());
+                            //_this9.setState({ dialogMessage: null });
+
+                            //writer.insertText( 'foo', editor.model.document.selection.getFirstPosition(), 'end' );
+                            //writer.insertText( 'foo', editor.model.document.selection.getFirstPosition(), 'end' );
+                            
+                            
+                            //writer.insertElement( 'inlineItem', editor.model.document.selection.getFirstPosition(), 'end' );
+                            const imageElement = writer.createElement( 'inlineItem');
+                            writer.appendText('This is what I have to do I guess',imageElement);
+                            // Insert the image in the current selection location.
+                            editor.model.insertContent( imageElement, editor.model.document.selection );
+
+                        });
+                    }
                 }
             };
 
