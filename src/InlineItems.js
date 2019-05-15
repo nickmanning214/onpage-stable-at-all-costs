@@ -14,11 +14,12 @@ class InlineItems extends Plugin {
         const blockConfig = {
             allowWhere: '$block',//like blockquote
             allowContentOf: '$root',
-            isObject:true
+            isObject:true,
+            allowAttributes:['type']
         }
 
         this.editor.model.schema.register( 'inlineItem',blockConfig);
-        
+
         return this;
     }
     
@@ -33,10 +34,25 @@ class InlineItems extends Plugin {
             model: 'inlineItem'
         });
 
+        this.editor.conversion.for('upcast').attributeToAttribute({
+            view: 'data-type',
+            model: 'type'
+        });
+        /*
         this.editor.conversion.for('dataDowncast').elementToElement({
             view: {
                 name:'section',
                 classes: 'inline-item'
+            },
+            model: 'inlineItem'
+        });*/
+
+        this.editor.conversion.for('dataDowncast').elementToElement({
+            view: ( modelElement, viewWriter ) => {
+                //what is a container element? These seem to be containers if you use the dev tools
+                const section = viewWriter.createContainerElement( 'section', { class: 'inline-item', ['data-type']:modelElement.getAttribute('type')} );
+                //return section;
+                return section
             },
             model: 'inlineItem'
         });
@@ -44,7 +60,7 @@ class InlineItems extends Plugin {
         this.editor.conversion.for( 'editingDowncast' ).elementToElement( {
             view: ( modelElement, viewWriter ) => {
                 //what is a container element? These seem to be containers if you use the dev tools
-                const section = viewWriter.createContainerElement( 'section', { class: 'inline-item' } );
+                const section = viewWriter.createContainerElement( 'section', { class: 'inline-item', ['data-type']:modelElement.getAttribute('type')} );
                 //return section;
                 return toWidget( section, viewWriter, { label: 'simple box widget' } );
             },
