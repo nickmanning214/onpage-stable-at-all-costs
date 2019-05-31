@@ -18,6 +18,7 @@ import InlineItems from './src/InlineItems.js'
 //attributes
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import Link from '@ckeditor/ckeditor5-link/src/link';
 
 //UI
 import HeadingButtonsUI from '@ckeditor/ckeditor5-heading/src/headingbuttonsui';
@@ -41,6 +42,7 @@ window.IncCKEditorFeatures = {
     //Attributes
     Bold,
     Italic,
+    Link,
     //UI
     HeadingButtonsUI,
     ParagraphButtonUI
